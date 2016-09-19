@@ -19,10 +19,11 @@ public class HomeController extends Controller {
      * this method will be called when the application receives a
      * <code>GET</code> request with a path of <code>/</code>.
      */
-    public Result index() {
-        String a = ConfigFactory.load().getString("sidebar.name");
-        System.out.print(a);
-        return ok(index.render());
+    public Result index(String path) {
+        switch (path) {
+            case "page" : return ok(index.render(page.render()));
+            default:
+                return null;
+        }
     }
-
 }

@@ -1,4 +1,4 @@
-@()
+@(content: Html)
 
 <!DOCTYPE html>
 <html lang="en">
@@ -38,6 +38,9 @@
                 @navigation()
 
 
+                <div class="right_col" role="main">
+                    @content
+                </div>
 
                 @page()
 

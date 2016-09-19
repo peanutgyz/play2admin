@@ -20,10 +20,12 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index(String path) {
+
+        System.out.println(ConfigFactory.load().getList("sidebar.general"));
         switch (path) {
             case "page" : return ok(index.render(page.render()));
             default:
-                return ok(index.render(page.render()));
+                return notFound("Not Found");
         }
     }
 }

@@ -1,8 +1,11 @@
 package controllers;
 
+import play.api.Play;
 import play.mvc.*;
+import com.typesafe.config.ConfigFactory;
 
 import views.html.*;
+
 
 /**
  * This controller contains an action to handle HTTP requests
@@ -17,6 +20,8 @@ public class HomeController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
+        String a = ConfigFactory.load().getString("sidebar.name");
+        System.out.print(a);
         return ok(index.render());
     }
 

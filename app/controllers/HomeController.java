@@ -23,7 +23,7 @@ public class HomeController extends Controller {
         switch (path) {
             case "page" : return ok(index.render(page.render()));
             default:
-                return null;
+                return ok(index.render(page.render()));
         }
     }
 }

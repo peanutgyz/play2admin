@@ -1,11 +1,11 @@
-@()
+@(config: play.Configuration)
 
 <!-- sidebar menu -->
 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
     <div class="menu_section">
         <h3>General</h3>
         <ul class="nav side-menu">
-            @for(p <- play.Play.application().configuration().getConfigList("sidebar.general")) {
+                @for(p <- config.getConfigList("sidebar.general")) {
                 <li><a><i class="@p.getString("img_class")"></i> @p.getString("title") <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         @for(i <- p.getConfigList("items")) {
@@ -19,7 +19,7 @@
     <div class="menu_section">
         <h3>Live On</h3>
         <ul class="nav side-menu">
-            @for(p <- play.Play.application().configuration().getConfigList("sidebar.liveon")) {
+            @for(p <- config.getConfigList("sidebar.general")) {
                 <li><a><i class="@p.getString("img_class")"></i> @p.getString("title") <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                     @for(i <- p.getConfigList("items")) {

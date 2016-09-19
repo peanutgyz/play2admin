@@ -1,10 +1,15 @@
 package controllers;
 
+import configs.sidebar.MenuItem;
+import play.api.Configuration;
+import play.api.Environment;
 import play.api.Play;
 import play.mvc.*;
 import com.typesafe.config.ConfigFactory;
 
 import views.html.*;
+
+import javax.inject.Inject;
 
 
 /**
@@ -12,6 +17,8 @@ import views.html.*;
  * to the application's home page.
  */
 public class MainController extends Controller {
+    @Inject
+    private Configuration configuration;
 
     /**
      * An action that renders an HTML page with a welcome message.
@@ -20,7 +27,9 @@ public class MainController extends Controller {
      * <code>GET</code> request with a path of <code>/</code>.
      */
     public Result index() {
-
+        System.out.println("hehe");
+        System.out.println(configuration.getConfigList("sidebar.general"));
+//        System.out.println(configuration.getString("sidebar").get());
         return ok(main.render());
     }
 }

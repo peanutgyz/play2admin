@@ -18,7 +18,7 @@
     <body>
         @* And here's where we render the `Html` object containing
          * the page content. *@
-        @for(p <- play.Play.application().configuration().getConfigList("sidebar.general")) {
+            @for(p <- play.Play.application().configuration().getConfigList("sidebar.general")) {
             <li>hahaha @p.getString("name")</li>
             @for( i <- p.getConfigList("items")) {
                 <li>haha2</li>

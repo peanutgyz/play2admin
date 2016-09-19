@@ -3,6 +3,8 @@
 # ~~~~
 
 # An example controller showing a sample home page
+
+GET     /main                       controllers.MainController.index
 # GET     /                           controllers.HomeController.index
 GET     /                           controllers.Default.redirect(to = "/page")
 GET     /:path                         controllers.HomeController.index(path: String)
